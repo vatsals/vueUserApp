@@ -2,8 +2,8 @@ import Vue from 'vue'
 import App from './App'
 import vueResource from 'vue-resource'
 import vueRouter from 'vue-router'
-import HelloWorld from './components/HelloWorld'
-import User from './components/User'
+import Additional from './components/Additional.vue'
+import User from './components/User.vue'
 
 Vue.config.productionTip = false
 Vue.use(vueResource)
@@ -14,16 +14,12 @@ const router = new vueRouter({
 	base: __dirname,
 	routes: [
 		{path: '/', component: User},
-		{path: '/hello', component: HelloWorld}
+		{path: '/additional', component: Additional}
 	]
 });
 
-/* eslint-disable no-new */
 new Vue({
-  	router,
-	template: `
-		<div id="app">
-			<router-view></router-view>
-		</div>
-		`
-}).$mount('#app')
+  el: '#app',
+  render: h => h(App),
+  router: router
+})
